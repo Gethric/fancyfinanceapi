@@ -3,7 +3,6 @@ from rest_framework import generics
 from .models import Expenses
 from .serializers import ExpenseSerializer
 
-# List and create expenses
 class ExpenseListCreateView(generics.ListCreateAPIView):
 
     serializer_class = ExpenseSerializer
@@ -16,7 +15,6 @@ class ExpenseListCreateView(generics.ListCreateAPIView):
 
         serializer.save(user=self.request.user)
 
-# Retrieve, update, or delete a specific expense
 class ExpenseDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     serializer_class = ExpenseSerializer
