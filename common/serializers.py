@@ -1,22 +1,24 @@
 from rest_framework import serializers
-from .models import Currencies, UserCurrencies, Pitches, Categories
+from .models import Currency, UserCurrency, Pitch, Category
 
-class CurrenciesSerializer(serializers.ModelSerializer):
+class CurrencySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Currencies
+        model = Currency
         fields = '__all__'
 
-class UserCurrenciesSerializer(serializers.ModelSerializer):
+class UserCurrencySerializer(serializers.ModelSerializer):
+    currency = CurrencySerializer(read_only=True)
+
     class Meta:
-        model = UserCurrencies
+        model = UserCurrency
+        fields = ['id', 'user', 'currency']
+
+class PitchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pitch
         fields = '__all__'
 
-class PitchesSerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Pitches
-        fields = '__all__'
-
-class CategoriesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Categories
+        model = Category
         fields = '__all__'

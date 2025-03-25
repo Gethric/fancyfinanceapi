@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Currency, UserCurrency, Pitch, Category, TransactionType
 
-# Register your models here.
+admin.site.register(Currency)
+admin.site.register(UserCurrency)
+admin.site.register(Pitch)
+admin.site.register(Category)
+admin.site.register(TransactionType)
